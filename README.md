@@ -17,4 +17,6 @@ ssh-add --apple-use-keychain ~/.ssh/id_ed25519
 cat id_ed25519.pub
 -- слепок ключа вставляем в Settings-SSH-Add new ssh на сайте GitHub
 git remote set-url origin git@github.com:Sibbear1980/URFU_Project_1.git
+git commit -m "README.md"
 git push
+
