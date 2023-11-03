@@ -1,3 +1,9 @@
+#Модель определения эмоционального окраса сообщений
+# 0-нейтрально
+# 1-позитивно
+# 2-негативно
+
+
 import torch
 from transformers import AutoModelForSequenceClassification
 from transformers import BertTokenizerFast
@@ -14,4 +20,6 @@ def predict(text):
     predicted = torch.argmax(predicted, dim=1).numpy()
     return predicted
 
-print(predict("Ненавижу"))
+print(predict("Ужасное обслуживание"))
+print(predict("Люблю море"))
+print(predict("Здание школы расположено по адресу г.Москва ул.Садовая 6"))
