@@ -21,8 +21,7 @@ def load_image():
         return Image.open(io.BytesIO(image_data))
     else:
         return None
-# обучение модели
-@st.cache_data
+exit# обучение модели
 max_length = 128
 num_beams = 4
 gen_kwargs = {"max_length": max_length, "num_beams": num_beams}
