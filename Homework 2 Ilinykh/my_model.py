@@ -22,7 +22,6 @@ def load_image():
     else:
         return None
 # обучение модели
-@st.cache_data
 max_length = 128
 num_beams = 4
 gen_kwargs = {"max_length": max_length, "num_beams": num_beams}

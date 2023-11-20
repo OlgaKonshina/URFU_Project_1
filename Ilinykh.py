@@ -1,3 +1,4 @@
+import torch
 from transformers import MBartForConditionalGeneration, MBart50TokenizerFast
 
 model = MBartForConditionalGeneration.from_pretrained("facebook/mbart-large-50")
