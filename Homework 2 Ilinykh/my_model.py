@@ -1,4 +1,6 @@
 import torch
+import io
+import streamlit as st
 from transformers import T5ForConditionalGeneration, T5Tokenizer
 #загружаем модель
 MODEL_NAME = 'cointegrated/rut5-base-paraphraser'
@@ -7,7 +9,7 @@ tokenizer = T5Tokenizer.from_pretrained(MODEL_NAME, legacy = False)
 model.cuda();
 model.eval();
 #обучение модели 
-@st.cache_resource
+@st.cache(allow_output_mutation=True)
 def paraphrase(text, beams=5, grams=4, do_sample=False):
     x = tokenizer(text, return_tensors='pt', padding=True).to(model.device)
     max_size = int(x.input_ids.shape[1] * 1.5 + 10)
@@ -25,8 +27,3 @@ if result:
     sor = (paraphrase(context, top_p=1.0, max_length=256))
     st.write("Новый текст:", *sor)
 
-model_inputs = tokenizer(src_text, return_tensors="pt")
-with tokenizer.as_target_tokenizer():
-    labels = tokenizer(tgt_text, return_tensors="pt").input_ids
-
-model(**model_inputs, labels=labels) # forward pass
