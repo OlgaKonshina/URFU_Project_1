@@ -24,6 +24,6 @@ context = st.text_input('Введите текст:')
 result = st.button('Перефразировать')
 # Eсли кнопка нажата запуск модели и вывод результата.
 if result:
-    sor = (paraphrase(context, top_p=1.0, max_length=256))
-    st.write("Новый текст:", *sor)
+    soe = (paraphrase(context, top_p=1.0, max_length=256))
+    st.write("Новый текст:", *soe)
 
