@@ -9,7 +9,7 @@ tokenizer = T5Tokenizer.from_pretrained(MODEL_NAME, legacy = False)
 model.cuda();
 model.eval();
 #обучение модели 
-@st.cache(allow_output_mutation=True)
+@st.cache_resource
 def paraphrase(text, beams=5, grams=4, do_sample=False):
     x = tokenizer(text, return_tensors='pt', padding=True).to(model.device)
     max_size = int(x.input_ids.shape[1] * 1.5 + 10)
@@ -24,6 +24,6 @@ context = st.text_input('Введите текст:')
 result = st.button('Перефразировать')
 # Eсли кнопка нажата запуск модели и вывод результата.
 if result:
-    soe = (paraphrase(context, top_p=1.0, max_length=256))
-    st.write("Новый текст:", *soe)
-
+    soe = (paraphrase(context))
+    st.write("︵‿ヽ(°□° )ノ︵‿︵Это новый текст, который совершенно не похож на твой ‿︵‿ヽ(°□° )ノ︵‿︵")
+    st.write(soe)
