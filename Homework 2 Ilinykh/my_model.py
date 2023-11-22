@@ -3,7 +3,7 @@ from transformers import T5ForConditionalGeneration, T5Tokenizer
 #загружаем модель
 MODEL_NAME = 'cointegrated/rut5-base-paraphraser'
 model = T5ForConditionalGeneration.from_pretrained(MODEL_NAME)
-tokenizer = T5Tokenizer.from_pretrained(MODEL_NAME)
+tokenizer = T5Tokenizer.from_pretrained(MODEL_NAME, legacy = False)
 model.cuda();
 model.eval();
 #обучение модели 
