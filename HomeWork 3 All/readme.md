@@ -20,3 +20,9 @@ curl -X 'POST' \
 
 Пример ответа:
 {"Исходный текст":"It was a wonderful journey. We have visited many beautiful places and seen many sightings! I am happy!","Результат:":"позитивный :)"}
+
+Участники команды:
+ - Коньшина Ольга
+ - Ильиных Виктория
+ - Шабанов Дмитрий
+ - Воробьев Василий
