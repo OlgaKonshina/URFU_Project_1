@@ -15,7 +15,7 @@ model = AutoModelForSequenceClassification.from_pretrained('blanchefort/rubert-b
 res_text = ['Текст нейтральный', 'Текст позитивный','Текст негативный']
 
 #Model
-@torch.no_grad()
+#@torch.no_grad()
 def predict(text):
     inputs = tokenizer(text, max_length=512, padding=True, truncation=True, return_tensors='pt')
     outputs = model(**inputs)
