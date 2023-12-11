@@ -1,4 +1,4 @@
 fastapi
-pytorch
+torch
 transformers
 uvicorn 
