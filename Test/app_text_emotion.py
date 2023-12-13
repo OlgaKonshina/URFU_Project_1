@@ -8,13 +8,19 @@ import streamlit as st
 import torch
 from transformers import AutoModelForSequenceClassification
 from transformers import BertTokenizerFast
+from fastapi import FastAPI
 
 tokenizer = BertTokenizerFast.from_pretrained('blanchefort/rubert-base-cased-sentiment')
 model = AutoModelForSequenceClassification.from_pretrained('blanchefort/rubert-base-cased-sentiment', return_dict=True)
 
 res_text = ['Текст нейтральный', 'Текст позитивный','Текст негативный']
 
+app = FastAPI()
+@app.get("/")
+def root():
+    return {"message": "Hello World"}
 #Model
+@app.post("/predict/")
 def predict(text):
     inputs = tokenizer(text, max_length=512, padding=True, truncation=True, return_tensors='pt')
     outputs = model(**inputs)
