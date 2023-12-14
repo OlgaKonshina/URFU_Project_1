@@ -26,7 +26,7 @@ def test_predict_negative():
     assert json_data['label'] == 'Текст негативный'
 
 #тест пытается распознать тональность нейтральной фразы
-    def test_predict_neutral():
+def test_predict_neutral():
         response = client.post("/predict/",
                                json={"text": "Сегодня наступила весна."})
         json_data = response.json()
