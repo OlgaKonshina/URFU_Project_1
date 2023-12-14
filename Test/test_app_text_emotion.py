@@ -14,8 +14,8 @@ def test_predict_positive():
     response = client.post("/predict/",
                            json={"text" : "Мне очень нравится учиться!"})
     json_data = response.json()
-    #assert response.status_code == 200
-    assert json_data['detail'] == 'Текст позитивный'
+    assert response.status_code == 200
+    assert json_data['text'] == 'Текст позитивный'
 
 #тест пытается распознать тональность негативной фразы
 def test_predict_negative():

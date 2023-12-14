@@ -37,6 +37,6 @@ text_in = st.text_input('Введите текст:')
 start = st.button('Start:')
 # Click the button
 if start:
-    text_out = int(predict(text_in))
+    text_out = float(predict(text_in))
     #st.write("Результат:", text_out)
     st.write("Результат:", res_text[text_out])
