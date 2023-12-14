@@ -1,12 +1,9 @@
 from fastapi.testclient import TestClient
-from app_text_emotion import app
+from fastapi import FastAPI
+client = TestClient(FastAPI())
 
-client = TestClient(app)
+# predict_positive():
+response = client.post("https://huggingface.co/spaces/OlgaKo/emotional_coloring_of_the_text", json = {'text':'Мне очень нравится учиться!'})
+json_data = response.json()
 
-#тест пытается распознать тональность положительной фразы
-def _predict_positive():
-    response = client.post("/predict/",
-                           json={"text": "Мне очень нравится учиться!"})
-    json_data = response.json()
-    response.status_code == 200
-    print(json_data)
+print(json_data)
