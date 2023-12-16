@@ -1,4 +1,4 @@
-from fastapi.testclient import TestClient
+from fastapi.testclient import estClient
 from app_text_emotion import app
 
 client = TestClient(app)
