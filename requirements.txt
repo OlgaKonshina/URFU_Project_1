@@ -1,5 +1,6 @@
 fastapi
 torch
 transformers
-httpx
 streamlit
+httpx
+
