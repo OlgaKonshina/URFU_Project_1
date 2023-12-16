@@ -1,6 +1,6 @@
 # модель ищет ответ на вопрос исходя из заданного текста
 
-!pip install transformers
+# !pip install transformers
 
 from transformers import pipeline
 
